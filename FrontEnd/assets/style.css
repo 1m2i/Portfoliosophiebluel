@@ -125,6 +125,36 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+// filters 
+
+#portofolio .filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  }
+  
+  .filter {
+	padding: 10px 20px;
+	border: 2px solid #dddddd; 
+	background-color: white;
+	color: #333; /* Dark grey text */
+	cursor: pointer;
+	transition: all 0.3s ease; /* Smooth transition for hover effect */
+	border-radius: 20px; /* Rounded borders */
+	outline: none;
+  }
+  
+  .filter:hover {
+	border-color: #333; /* Darken border on hover */
+  }
+  
+  .filter-selected {
+	background-color: #1D6154; /* Green background for selected button */
+	color: white;
+	border-color: #1D6154; /* Green border for selected button */
+  }
+  
 .gallery {
 	width: 100%;
 	display: grid;

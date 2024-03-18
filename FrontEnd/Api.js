@@ -6,10 +6,9 @@ function recupererTousLesTravaux() {
         const galerie = document.querySelector('.gallery');
         travaux.forEach(travail => {
           const element = document.createElement('div');
-          element.innerHTML = `
-            <h3>${travail.title}</h3>
+          element.innerHTML = ` 
             <img src="${travail.imageUrl}" alt="${travail.title}">
-            <p>Catégorie: ${travail.category.name}</p>
+            <h3>${travail.title}</h3>
           `;
           galerie.appendChild(element);
         });
@@ -21,39 +20,46 @@ function recupererTousLesTravaux() {
   
   // Fonction des categories 
 
-  function recupererCategoriesEtAfficherMenu() {
-    fetch('http://localhost:5678/api/categories')
-      .then(response => response.json())
-      .then(categories => {
-        const menuCategories = document.querySelector('.menu-categories');
-        const categoriesUniques = new Set(categories.map(categorie => categorie.name));
+fetch('http://localhost:5678/api/categories')
+.then(response => response.json())
+.then(categories => {
+  const filterButtons = document.querySelector('.filter-buttons');
+  // Use map to generate the HTML structure for each category
+  const buttonsHtml = categories.map(category => {
+    return `<button class="filter" data-id="${category.id}">${category.name}</button>`;
+  }).join("");
+  // Add the "Tous" button as the first button
+  const allButtonHtml = `<button class="filter filter-selected" data-id="all">Tous</button>`;
+  // Create the complete structure by combining the "Tous" button with the category buttons
+  const filterButtonsHtml = allButtonHtml + buttonsHtml;
+  // Use innerHTML to update the content of the div filter-buttons
+  filterButtons.innerHTML = filterButtonsHtml;
   
-        categoriesUniques.forEach(categorie => {
-          const boutonCategorie = document.createElement('button');
-          boutonCategorie.textContent = categorie;
-          boutonCategorie.addEventListener('click', () => filtrerTravauxParCategorie(categorie));
-          menuCategories.appendChild(boutonCategorie);
-        });
-  
-        // Ajoute un bouton pour afficher tous les travaux
-        const boutonTous = document.createElement('button');
-        boutonTous.textContent = 'Tous';
-        boutonTous.addEventListener('click', () => afficherTousLesTravaux());
-        menuCategories.prepend(boutonTous);
-      })
-      .catch(erreur => console.error("Erreur lors de la récupération des catégories: ", erreur));
-  }
-  
-  function filtrerTravauxParCategorie(categorie) {
-    // Ici, tu filtrerais l'array de travaux basé sur la catégorie
-    // et mettrais à jour l'affichage dans la galerie.
-    console.log(`Filtrer les travaux par la catégorie: ${categorie}`);
-    // Exemple de filtrage (tu devras adapter cela à ta structure de données)
-    const travauxFiltres = tousLesTravaux.filter(travail => travail.categorie.name === categorie);
-    afficherTravaux(travauxFiltres);
-  }
-  
-  function afficherTousLesTravaux() {
-    afficherTravaux(tousLesTravaux); // Assure-toi que `tousLesTravaux` est accessible
-  }
-  
+  // Add an event listener to each filter button
+  const buttons = document.querySelectorAll('.filter-buttons button');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Check if the "Tous" button is clicked (with the class "filter-selected"), if so, call "filterProjects" with categoryId as null,
+      // Otherwise, find the category id associated and call "filterProjects" with this id to filter the projects by category
+      const categoryId = button.dataset.id;
+      filterProjects(categoryId, button);
+    });
+  });
+});
+
+function filterProjects(categoryId, selectedButton) {
+  // Implementation depends on how you want to filter your projects
+  // You need to implement filtering logic here
+  // Example:
+  // const filteredProjects = categoryId === 'all' ? allProjects : allProjects.filter(project => project.categoryId === categoryId);
+  // displayProjects(filteredProjects);
+  setSelectedFilter(selectedButton);
+}
+
+function setSelectedFilter(selectedButton) {
+  const buttons = document.querySelectorAll('.filter-buttons button');
+  buttons.forEach(button => {
+    button.classList.remove('filter-selected');
+  });
+  selectedButton.classList.add('filter-selected');
+}
