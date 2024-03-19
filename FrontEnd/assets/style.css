@@ -127,7 +127,7 @@ li:hover {
 }
 // filters 
 
-#portofolio .filter-buttons {
+.filter-buttons {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -140,8 +140,8 @@ li:hover {
 	background-color: white;
 	color: #333; /* Dark grey text */
 	cursor: pointer;
-	transition: all 0.3s ease; /* Smooth transition for hover effect */
-	border-radius: 20px; /* Rounded borders */
+	transition: all 0.3s ease; 
+	border-radius: 20px; /* 
 	outline: none;
   }
   

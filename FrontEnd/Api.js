@@ -24,11 +24,10 @@ fetch('http://localhost:5678/api/categories')
 .then(response => response.json())
 .then(categories => {
   const filterButtons = document.querySelector('.filter-buttons');
-  // Use map to generate the HTML structure for each category
   const buttonsHtml = categories.map(category => {
     return `<button class="filter" data-id="${category.id}">${category.name}</button>`;
   }).join("");
-  // Add the "Tous" button as the first button
+ 
   const allButtonHtml = `<button class="filter filter-selected" data-id="all">Tous</button>`;
   // Create the complete structure by combining the "Tous" button with the category buttons
   const filterButtonsHtml = allButtonHtml + buttonsHtml;
