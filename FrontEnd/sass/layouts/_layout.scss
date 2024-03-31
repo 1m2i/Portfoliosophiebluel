@@ -1,0 +1,52 @@
+
+// Navigation
+nav ul {
+    @include flex-center;
+    list-style-type: none;
+  
+    li {
+      padding: 0 10px;
+      font-size: 1.2em;
+  
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+  
+  // Introduction section
+  #introduction {
+    @include flex-center;
+  
+    figure, article {
+      flex: 1;
+    }
+  
+    img {
+      display: block;
+      margin: auto;
+      width: 80%;
+    }
+  
+    h2 {
+      margin-bottom: 1em;
+    }
+  
+    p {
+      margin-bottom: 0.5em;
+    }
+  }
+
+// Portfolio section
+#portfolio h2 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  // Gallery styling
+  .gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
