@@ -1,0 +1,141 @@
+@import "./variables";
+@import "./mixin";
+
+
+h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: $color-primary;
+
+  span {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 30px;
+  color: $color-secondary;
+}
+
+// Navigation
+nav ul {
+  @include flex-center;
+  list-style-type: none;
+
+  li {
+    padding: 0 10px;
+    font-size: 1.2em;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+// Introduction section
+#introduction {
+  @include flex-center;
+
+  figure, article {
+    flex: 1;
+  }
+
+  img {
+    display: block;
+    margin: auto;
+    width: 80%;
+  }
+
+  h2 {
+    margin-bottom: 1em;
+  }
+
+  p {
+    margin-bottom: 0.5em;
+  }
+}
+
+// Button et filtres
+/* Button hover effect */
+
+.filter-buttons {
+  @include flex-center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.filter:hover {
+  background-color: $color-secondary; 
+}
+
+/* Button active (selected) effect */
+.filter-selected {
+  background-color:$color-primary;
+  color: white;
+}
+
+// Portfolio section
+#portfolio h2 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+// Gallery styling
+.gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+// Contact form styling
+#contact {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  form {
+    text-align: left;
+    margin-top: 30px;
+    @include flex-center;
+    flex-direction: column;
+  }
+
+  input, textarea {
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  }
+
+  label {
+    margin: 2em 0 1em 0;
+  }
+
+  input[type="submit"] {
+    font-family: $font-secondary;
+    font-weight: 700;
+    color: white;
+    background-color: $color-secondary;
+    margin: 2em auto;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px;
+  }
+}
+
+// Footer styling
+footer nav ul {
+  @include flex-center;
+  justify-content: flex-end;
+  margin: 2em;
+}
+
+
+
