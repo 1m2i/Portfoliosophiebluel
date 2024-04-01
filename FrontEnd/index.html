@@ -11,6 +11,15 @@
 	<link rel="stylesheet" href="/sass/main.css">
 </head>
 <body>
+	<aside class="admin__rod admin__modifer" aria-hidden="true" style="display: none;">
+		<div class="admin__modifer">
+			<i class="fa-solid fa-pen-to-square"></i>
+			<p>Mode édition</p>
+		</div>
+		<a href="./login.html">
+			<button>Publier les changements</button>
+		</a>
+	</aside>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
@@ -34,14 +43,10 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
-	<section id="portfolio">
-        <h2 class="portfolio">Mes projets</h2>
+	<section id="projects">
+        <h2 class="project">Mes projets</h2>
 		<div class="filter-buttons">
-			<div id="projects">
-				<div class="project" data-category-id="1">Project 1 (Category 1)</div>
-				<div class="project" data-category-id="2">Project 2 (Category 2)</div>
-				<div class="project" data-category-id="3">Project 3 (Category 3)</div>
-			</div>
+			<button id="filter-button">Filter</button>
 
 		</div>
         <div class="gallery"></div>
@@ -70,7 +75,12 @@
 	</nav>
 </footer>
 </body>
-<script src="./assets/scripts/filter.js"></script>
-<script src="./assets/scripts/script.js"></script>
-<script src="./assets/scripts/filter.js"></script>
+<script src="./scripts/allworks.js"></script>
+<script src="./scripts/categories.js"></script>
+<script src="./scripts/filter.js"></script>
+<script src="./scripts/edit.js"></script>
+<script src="./scripts/createworks.js"></script>
+<script src="./scripts/deleteworks.js"></script>
+<script src="./scripts/modal.js"></script>
+<script src="./scripts/login.js"></script>
 </html>

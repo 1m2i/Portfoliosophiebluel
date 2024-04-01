@@ -1,18 +1,26 @@
-/ Button et filtres
-/* Button hover effect */
-
+// Styles de base pour les boutons de filtrage
 .filter-buttons {
-  @include flex-center;
+  display: flex;
+  justify-content: center;
   gap: 20px;
   margin-bottom: 30px;
 }
 
-.filter:hover {
-  background-color: $color-secondary; 
+.filter {
+  padding: 10px 20px;
+  border: 2px solid $color-secondary; // Utilisez votre couleur principale pour la bordure
+  border-radius: 25px;
+  background-color: transparent;
+  color: $color-secondary;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.filter-selected { // Unifiez le style pour hover et selected
+    background-color: $color-secondary;
+    color: white;
+    border-color: transparent; // Optionnel, pour enlever la bordure sur les boutons actifs
+  }
 }
 
-/* Button active (selected) effect */
-.filter-selected {
-  background-color:$color-primary;
-  color: white;
-}
