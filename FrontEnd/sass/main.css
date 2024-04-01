@@ -133,6 +133,58 @@ body nav ul li:hover {
   width: 100%;
 }
 
+/* FORM Styling */
+#contact {
+  width: 50%;
+  margin: auto;
+  /* Applying text alignment to all child elements */
+}
+#contact > * {
+  text-align: center;
+}
+#contact h2 {
+  margin-bottom: 20px;
+}
+#contact form {
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+#contact form input, #contact form textarea {
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: none;
+}
+#contact form input:not([type=submit]), #contact form textarea:not([type=submit]) {
+  height: 50px;
+  font-size: 1.2em;
+}
+#contact form label {
+  margin: 2em 0 1em;
+}
+#contact form textarea {
+  padding: 10px;
+  height: 174px;
+  resize: none;
+}
+#contact form input[type=submit] {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 3em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+  transition: all 0.5s ease;
+  border: 2px solid #1D6154;
+}
+#contact form input[type=submit]:hover {
+  color: #1D6154;
+  background-color: white;
+  scale: 1.05;
+}
+
 footer nav ul {
   display: flex;
   justify-content: flex-end;
