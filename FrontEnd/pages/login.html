@@ -1,59 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
-    <meta name="description" content="">
+    <meta name="description" content="Login page for Sophie Bluel, Interior Designer.">
     <title>Login Page</title>
     <link rel="stylesheet" href="/sass/main.css">  
 </head>
 <body>
     <header>
-        <a href="index.html">
-            <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-        </a>
-        <nav>
+        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+        <nav class="header-nav">
             <ul>
-                <a href="index.html">
-                    <li>Retour</li>
+                <li><a href="../index.html#portfolio">projets</a></li>
+                <li><a href="/index.html#contact">contact</a></li>
+                <li><a href="/pages/login.html">login</li>
                 </a>
-                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+                <li><img src="/assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
         </nav>
     </header>
-    
-    <main>
-        <section class="login">
-            <h2>Log In</h2>
-            <div class="alredyLogged__error">
-            </div>
-            <form action="" method="" class="login__form" onsubmit="return false">
-                <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" required>
-                <div class="loginEmail__error">
+    <section class="login">
+        <div class="login-container">
+            <form class="login-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" name="email" required>
                 </div>
-                <label for="password">Mot de passe</label>
-                <input type="password" name="password" id="password" required>
-                <div class="loginMdp__error">
+                <div class="form-group">
+                    <label for="user-password">Password</label>
+                    <input type="password" id="user-password" name="password" required>
                 </div>
-                <input type="submit" value="Se connecter" id="submit">
+                <input type="submit" value="Se connecter" class="login-button">
+                <a href="#" class="forgot-password">Mot de passé oublié</a>
             </form>
-            <a href="">Mot de passe oublié</a>
-        </section>
-    </main>
-    
-    
-    
+        </div>
+    </section>
     <footer>
         <nav>
             <ul>
-                <li>Mentions Légales</li>
+                <li>Mention Légales</li>
             </ul>
         </nav>
     </footer>
-    </body>
-    </html>
+    <script src="/scripts/login.js"></script>
+</body>
+</html>

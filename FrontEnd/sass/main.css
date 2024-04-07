@@ -85,18 +85,25 @@ body h2 {
   font-weight: 700;
   font-size: 30px;
   color: #1D6154;
+  text-align: center;
+  padding-bottom: 50px;
 }
-body nav ul {
+
+nav ul {
   display: flex;
   align-items: center;
   list-style-type: none;
 }
-body nav ul li {
+nav ul li {
   padding: 0 10px;
   font-size: 1.2em;
 }
-body nav ul li:hover {
+nav ul li:hover {
   color: #B1663C;
+}
+nav ul li a {
+  text-decoration: none;
+  color: black;
 }
 
 #introduction {
@@ -116,11 +123,6 @@ body nav ul li:hover {
 }
 #introduction p {
   margin-bottom: 0.5em;
-}
-
-#portfolio h2 {
-  text-align: center;
-  margin-bottom: 1em;
 }
 
 .gallery {
@@ -152,7 +154,7 @@ body nav ul li:hover {
   flex-direction: column;
 }
 #contact form input, #contact form textarea {
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.0901960784);
   border: none;
 }
 #contact form input:not([type=submit]), #contact form textarea:not([type=submit]) {
@@ -168,7 +170,7 @@ body nav ul li:hover {
   resize: none;
 }
 #contact form input[type=submit] {
-  font-family: "Work Sans", sans-serif;
+  font-family: #B1663C;
   font-weight: 700;
   color: white;
   background-color: #1D6154;
@@ -181,7 +183,7 @@ body nav ul li:hover {
 }
 #contact form input[type=submit]:hover {
   color: #1D6154;
-  background-color: white;
+  background-color: #ffffff;
   scale: 1.05;
 }
 
@@ -225,6 +227,63 @@ footer nav ul {
 .login a {
   text-decoration: none;
   margin-bottom: 100px;
+}
+
+.login {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.login .login-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+.login .login-container .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.login .login-container .login-form .form-group {
+  margin-bottom: 20px;
+}
+.login .login-container .login-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.login .login-container .login-form .form-group input[type=email],
+.login .login-container .login-form .form-group input[type=password] {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+}
+.login .login-container .login-form .login-button {
+  width: 50%;
+  align-self: center;
+  padding: 15px;
+  border: none;
+  border-radius: 50px;
+  background-color: #1D6154;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login .login-container .login-form .login-button:hover {
+  background-color: #1D6154;
+}
+.login .login-container .login-form .forgot-password {
+  text-align: center;
+  color: black;
+  margin-top: 15px;
+  text-decoration: none;
+}
+.login .login-container .login-form .forgot-password:hover {
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=main.css.map */
