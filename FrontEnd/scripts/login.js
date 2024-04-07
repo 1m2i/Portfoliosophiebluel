@@ -1,13 +1,17 @@
 const login = () => {
-  // Retrieve the login button by its updated ID
-  const btnLogin = document.querySelector("#login-button");
+  const btnLogin = document.querySelector(".login-button"); // Updated to use class selector
 
   btnLogin.addEventListener("click", async (e) => {
     const inputEmail = document.querySelector("#user-email");
     const inputPassword = document.querySelector("#user-password");
-    const signInErrorMessage = document.querySelector(".signin_error_msg");
+    const emailError = document.querySelector(".email-error"); // Specific error for email
+    const passwordError = document.querySelector(".password-error"); // Specific error for password
 
-    // Prevent the form from submitting traditionally, which would reload the page
+    // Clear any existing error messages
+    emailError.textContent = '';
+    passwordError.textContent = '';
+
+    // Prevent the default form submission
     e.preventDefault();
 
     // Request a token from the API
@@ -21,7 +25,12 @@ const login = () => {
         password: inputPassword.value,
       }),
     })
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      return res.json();
+    })
     .then((res_json) => {
       if (res_json.token) {
         // Store the JWT token in sessionStorage
@@ -30,29 +39,36 @@ const login = () => {
         window.location.href = "../index.html";
       } else {
         // If there is no token, display an error message
-        signInErrorMessage.innerHTML = "Identifiant ou mot de passe incorrect.";
+        passwordError.textContent = "Identifiant ou mot de passe incorrect.";
       }
     })
     .catch((error) => {
       // Handle any errors that occur during the fetch
       console.error('Error:', error);
-      signInErrorMessage.innerHTML = "Problème de connexion au service. Veuillez réessayer plus tard.";
+      emailError.textContent = "Problème de connexion au service. Veuillez réessayer plus tard.";
     });
   });
 };
 
 login();
 
-const token = sessionStorage.getItem("Sophie_Bluel_Interior_Design_JWT");
-if (token) {
-  // Sépare le token en ses différentes parties
-  const base64Url = token.split('.')[1];
-  // Remplace les caractères spéciaux et décode le base64
-  const base64 = base64Url.replace('-', '+').replace('_', '/');
-  // Parse le payload du token pour le convertir de JSON en objet JavaScript
-  const payload = JSON.parse(window.atob(base64));
+// Assume this token checking happens elsewhere or after page load
+const checkTokenAndRedirect = () => {
+  const token = sessionStorage.getItem("Sophie_Bluel_Interior_Design_JWT");
+  if (token) {
+    try {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const payload = JSON.parse(window.atob(base64));
+      
+      console.log("User ID:", payload.userId);
+      // Adjust your application state as needed
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle token parsing error, maybe clear the token and redirect to login
+    }
+  }
+};
 
-  // Maintenant, vous avez accès à l'userId et autres informations stockées
-  console.log("User ID:", payload.userId);
-  // Ici, vous pouvez ajuster l'état connecté de votre application selon l'userId ou d'autres données
-}
+// Run the token check
+checkTokenAndRedirect();
