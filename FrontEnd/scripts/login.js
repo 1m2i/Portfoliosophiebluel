@@ -27,10 +27,6 @@ function sendLoginRequest(email, password) {
       alert("Échec de la connexion. Veuillez vérifier vos identifiants.");
     }
   })
-  .catch(function(error) {
-    console.error('Erreur de connexion:', error);
-    alert("Il y a eu un problème avec le processus de connexion. Veuillez réessayer plus tard.");
-  });
 }
 
 setupLogin();

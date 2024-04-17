@@ -1,35 +1,41 @@
 document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOMContentLoaded for admin panel");
     showAdminPanel();
   });
   
   function showAdminPanel() {
     const sessionData = sessionStorage.getItem("Sophie_Bluel_Architecte_JWT");
+    console.log("Session data retrieved:", sessionData);
     const editModeBanner = document.querySelector(".banner_edit_mode");
+    console.log("Edit mode banner element:", editModeBanner);
+    
     if (sessionData && JSON.parse(sessionData).token) {
-      editModeBanner.style.display = 'block'; // Display the banner if a token is present
+      editModeBanner.style.display = 'block'; 
+      console.log("Admin panel displayed");
     } else {
-      editModeBanner.style.display = 'none'; // Otherwise, ensure it remains hidden
+      editModeBanner.style.display = 'none'; 
+      console.log("Admin panel hidden");
     }
   }
-
+  
   // the projet-edit mode //
-
+  
   document.addEventListener("DOMContentLoaded", function() {
     toggleEditMode();
-  });
-  
-  function toggleEditMode() {
+});
+
+function toggleEditMode() {
     const sessionData = sessionStorage.getItem("Sophie_Bluel_Architecte_JWT");
-    const projectsEditDiv = document.querySelector(".projects_edit");
-    const filterButtonsDiv = document.querySelector(".filter-buttons");
-  
+    const icon = document.querySelector(".project-header .fa-solid");
+    const editSpan = document.querySelector(".project-header span");
+
     if (sessionData && JSON.parse(sessionData).token) {
-      projectsEditDiv.style.display = 'flex'; 
-      filterButtonsDiv.style.display = 'none'; // Show the edit controls if a token is present
+        icon.style.display = 'inline'; // Show the icon
+        editSpan.style.display = 'inline'; // Show the span
+        console.log("Edit mode activated");
     } else {
-      projectsEditDiv.style.display = 'none';  // Hide the edit controls if no token is present
-      filterButtonsDiv.style.display = 'flex'; // Ensure filter buttons are always visible when no token
+        icon.style.display = 'none'; // Hide the icon
+        editSpan.style.display = 'none'; // Hide the span
+        console.log("Edit mode deactivated");
     }
-  }
-  
-  
+}

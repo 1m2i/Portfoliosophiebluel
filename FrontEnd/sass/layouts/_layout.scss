@@ -1,8 +1,13 @@
 body {
-  max-width: 1140px;
+  max-width: 1140;
   margin: auto;
   font-family: 'Work Sans';
   font-size: 14px;
+
+  main {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 
   header {
     display: flex;
@@ -61,8 +66,6 @@ body {
     }
   }
 
-
-
   // Introduction section
   #introduction {
     @include flex-center;
@@ -103,20 +106,21 @@ body {
 #projects {
   flex-direction: column;
   align-items: center;
+}
+.project-header {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 
-  h2.project {
-    margin-right: auto; // Aligns the title to the left
-  }
-
-  .projects_edit {
-    display: none; // Initially hidden, display set by JavaScript
-    align-self: center; // Centers the edit button
+    span, i {
+        margin-top: 10px;
+        display: none; // Initially hidden, display set by JavaScript
+    }
   }
 
   .filter-buttons {
     margin-bottom: 30px;
-  }
-}
+   }
 
 
 /* FORM Styling */
