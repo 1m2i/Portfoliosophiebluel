@@ -1,3 +1,23 @@
+function updateLoginLogoutLink() {
+  const loginLogoutLink = document.getElementById('loginLogoutLink');
+  if (sessionStorage.getItem('Sophie_Bluel_Architecte_JWT')) {
+    loginLogoutLink.textContent = 'Logout';
+    loginLogoutLink.href = '#'; // Update the link to do something for logout, maybe call a logout function
+    loginLogoutLink.addEventListener('click', performLogout);
+  } else {
+    loginLogoutLink.textContent = 'Login';
+    loginLogoutLink.href = '/pages/login.html';
+    loginLogoutLink.removeEventListener('click', performLogout);
+  }
+}
+
+function performLogout(event) {
+  event.preventDefault();
+  sessionStorage.removeItem('Sophie_Bluel_Architecte_JWT');
+  window.location.href = "../index.html"; // Redirect to home on logout or a specific logout page
+  updateLoginLogoutLink();
+}
+
 function setupLogin() {
   const btnLogin = document.querySelector(".login-button");
   btnLogin.addEventListener("click", function(event) {
@@ -23,10 +43,11 @@ function sendLoginRequest(email, password) {
     if (data.token) {
       sessionStorage.setItem("Sophie_Bluel_Architecte_JWT", JSON.stringify(data));
       window.location.href = "../index.html"; // Redirect to index.html on successful login
+      updateLoginLogoutLink(); // Update link on successful login
     } else {
       alert("Échec de la connexion. Veuillez vérifier vos identifiants.");
     }
-  })
+  });
 }
 
 setupLogin();

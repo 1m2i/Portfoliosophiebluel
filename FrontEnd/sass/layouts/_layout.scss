@@ -112,11 +112,12 @@ body {
     justify-content: center;
     gap: 20px;
 
-    span, i {
+    .other-sections {
         margin-top: 10px;
-        display: none; // Initially hidden, display set by JavaScript
+        display: flex;
+        gap: 10px;
     }
-  }
+    }
 
   .filter-buttons {
     margin-bottom: 30px;

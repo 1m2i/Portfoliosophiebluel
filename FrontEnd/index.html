@@ -16,17 +16,29 @@
 		<i class="fa-solid fa-pen-to-square"></i>
 		<span>Mode édition</span>
 	</div>
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Ouvrir la modale</button>
 
-<!-- The Modal -->
-<aside id="myModal" class="modal">
+<aside>
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <button class="Ajouter-Projet"><span> Ajouter une Photo</span>
-    <h2>Galerie Photo</h2>
-  </div>
+	<div class="modal" id="photoModal">
+		<div class="modal-header" onclick="toggleModal()">
+		  <strong>X Fermer</strong>
+		</div>
+		<div class="modal-body">
+		  <!-- Section pour supprimer des photos -->
+		  <div>
+			<h3>Supprimer des photos</h3>
+			<!-- Liste simulée de photos pour la démonstration -->
+			<div>Photo 1 <button onclick="alert('Supprimer Photo 1')">Supprimer</button></div>
+			<div>Photo 2 <button onclick="alert('Supprimer Photo 2')">Supprimer</button></div>
+		  </div>
+		  <!-- Section pour télécharger des nouvelles photos -->
+		  <div class="button">
+			<h3>Télécharger des photos</h3>
+			<input type="file" multiple>
+			<button onclick="alert('Photos téléchargées')">Télécharger</button>
+		  </div>
+		</div>
+	  </div>
 
 </aside>
 <main>
@@ -56,12 +68,15 @@
 	<section id="projects">
 		<div class="project-header">
 			<h2 class="project">Mes projets</h2>
-			<i class="fa-solid fa-pen-to-square"></i> 
+		<div class="other-sections">
+			<i class="fa-solid fa-pen-to-square"></i>
 			<span>Modifier</span>
-	   </div>
+		</div>
+		</div>
 		<div class="filter-buttons">
 			<button id="filter-button">Filter</button>
 		</div>
+
         <div class="gallery"></div>
     </section>
 	

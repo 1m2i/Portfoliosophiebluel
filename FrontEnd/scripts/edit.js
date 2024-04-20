@@ -1,41 +1,36 @@
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOMContentLoaded for admin panel");
-    showAdminPanel();
-  });
-  
-  function showAdminPanel() {
+// This function is called to show the admin panel based on session data
+function showAdminPanel() {
     const sessionData = sessionStorage.getItem("Sophie_Bluel_Architecte_JWT");
     console.log("Session data retrieved:", sessionData);
+
+    // Elements for admin mode
     const editModeBanner = document.querySelector(".banner_edit_mode");
-    console.log("Edit mode banner element:", editModeBanner);
-    
-    if (sessionData && JSON.parse(sessionData).token) {
-      editModeBanner.style.display = 'block'; 
-      console.log("Admin panel displayed");
-    } else {
-      editModeBanner.style.display = 'none'; 
-      console.log("Admin panel hidden");
-    }
-  }
-  
-  // the projet-edit mode //
-  
-  document.addEventListener("DOMContentLoaded", function() {
-    toggleEditMode();
-});
+    const otherSections = document.querySelector('.other-sections');
+    const filterSection = document.querySelector('.filter-buttons');
+    const loginLink = document.querySelector('a[href="/pages/login.html"]'); // Select the login link
 
-function toggleEditMode() {
-    const sessionData = sessionStorage.getItem("Sophie_Bluel_Architecte_JWT");
-    const icon = document.querySelector(".project-header .fa-solid");
-    const editSpan = document.querySelector(".project-header span");
-
+    // Check if session token is present and valid
     if (sessionData && JSON.parse(sessionData).token) {
-        icon.style.display = 'inline'; // Show the icon
-        editSpan.style.display = 'inline'; // Show the span
-        console.log("Edit mode activated");
+        // Admin session is active
+        editModeBanner.style.display = 'block';
+        otherSections.style.display = 'block';
+        filterSection.style.visibility = 'hidden';
+        loginLink.textContent = 'logout'; // Change text to 'logout'
+        loginLink.href = '/pages/login.html'; 
+        console.log("Admin panel displayed, other sections shown, filter buttons made invisible, login link changed to logout");
     } else {
-        icon.style.display = 'none'; // Hide the icon
-        editSpan.style.display = 'none'; // Hide the span
-        console.log("Edit mode deactivated");
+        // No valid admin session
+        editModeBanner.style.display = 'none';
+        otherSections.style.display = 'none';
+        filterSection.style.visibility = 'visible';
+        loginLink.textContent = 'login'; // Revert text to 'login'
+        loginLink.href = '/pages/login.html'; // Revert the href if it was changed
+        console.log("Admin panel hidden, other sections hidden, filter buttons visible, login link reverted to login");
     }
 }
+
+// Ensure DOM is fully loaded before executing script
+document.addEventListener('DOMContentLoaded', function() {
+    showAdminPanel();  // Call this function to check session and update UI accordingly
+});
+
