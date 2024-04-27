@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -270,37 +269,97 @@ footer nav ul {
   color: white;
 }
 
-.hidden {
+.modal {
   display: none;
+  flex-direction: column;
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+  box-shadow: grey;
+  background: whitesmoke;
+  text-align: center;
+}
+.modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 26px 30px 13px;
+  font-size: 1.5em;
+}
+.modal .modal-header .cross-modal {
+  margin-left: auto;
+}
+.modal .modal-body {
+  text-align: center;
+  margin: 0;
+}
+.modal .modal-body h2 {
+  font-size: 26px;
+  font-weight: 400;
+}
+.modal .modal-body .photo-mini-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 10% 10%;
+  gap: 10px;
+}
+.modal .modal-body .photo-mini-gallery img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.modal .modal-body #line-modal {
+  width: 420px;
+  height: 1px;
+  background: gray;
+  margin: auto;
+  color: white;
+}
+.modal .modal-body button {
+  background: #1D6154;
+  color: white;
+  width: 237px;
+  height: 36px;
+  border-radius: 60px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 45px;
+  margin-top: 46px;
+  align-self: center;
+}
+.modal .modal-body form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  width: 420px;
+  margin-bottom: 45px;
+}
+
+.backdropFilter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1000; /* High z-index to be below the modal but above other content */
 }
 
 .modal {
-  position: fixed;
-  top: 25%;
-  left: 25%;
-  width: 50%;
-  height: 50%;
-  background: white;
-  border: 1px solid black;
-  padding: 20px;
-  box-sizing: border-box;
-  display: none; /* La modal est cachée par défaut */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
 }
 
-.modal-header {
-  display: flex;
-  justify-content: flex-end;
-  cursor: pointer;
-}
-
-.modal-body {
-  margin-top: 20px;
-  height: 80%;
-  overflow-y: auto;
-}
-
-.button {
-  margin-top: 10px;
+.modal-active .backdropFilter {
+  display: block; /* Show backdrop when modal is active */
 }
 
 .filter-buttons {
