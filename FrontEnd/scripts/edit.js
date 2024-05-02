@@ -28,6 +28,6 @@ function showAdminPanel() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    showAdminPanel();  // Call this function to check session and update UI accordingly
+    showAdminPanel();  // Call this function to check session and update 
 });
 

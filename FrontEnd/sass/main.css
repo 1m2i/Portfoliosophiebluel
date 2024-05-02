@@ -128,7 +128,6 @@ body h2 {
   font-size: 30px;
   color: #1D6154;
   text-align: center;
-  padding-bottom: 50px;
 }
 
 nav ul {
@@ -272,16 +271,18 @@ footer nav ul {
 .modal {
   display: none;
   flex-direction: column;
-  z-index: 10;
   position: fixed;
   top: 50%;
-  transform: translateY(-50%);
-  width: 50%;
-  height: 50%;
+  width: 630px;
+  height: 680px;
   border-radius: 10px;
   box-shadow: grey;
   background: whitesmoke;
   text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  overflow: hidden;
 }
 .modal .modal-header {
   display: flex;
@@ -292,6 +293,9 @@ footer nav ul {
 .modal .modal-header .cross-modal {
   margin-left: auto;
 }
+.modal .modal-header .fa-arrow-left {
+  display: none;
+}
 .modal .modal-body {
   text-align: center;
   margin: 0;
@@ -299,17 +303,19 @@ footer nav ul {
 .modal .modal-body h2 {
   font-size: 26px;
   font-weight: 400;
+  color: unset;
+  font-family: unset;
 }
 .modal .modal-body .photo-mini-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 10% 10%;
-  gap: 10px;
+  padding: 72px;
+  gap: 22px;
+  position: relative;
 }
 .modal .modal-body .photo-mini-gallery img {
-  width: 100px;
-  height: 100px;
+  width: 78px;
+  height: 102px;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -349,17 +355,33 @@ footer nav ul {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
-  z-index: 1000; /* High z-index to be below the modal but above other content */
-}
-
-.modal {
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1001;
+  z-index: 1000;
 }
 
 .modal-active .backdropFilter {
-  display: block; /* Show backdrop when modal is active */
+  display: block;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.image-wrapper img {
+  width: 100%;
+  display: block;
+}
+.image-wrapper .fa-trash-can {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  background: black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.modal-adding-photo {
+  display: none;
 }
 
 .filter-buttons {
