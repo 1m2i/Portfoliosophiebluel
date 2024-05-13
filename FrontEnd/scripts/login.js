@@ -1,6 +1,6 @@
 function updateLoginLogoutLink() {
   const loginLogoutLink = document.getElementById('loginLogoutLink');
-  if (sessionStorage.getItem('Sophie_Bluel_Architecte_JWT')) {
+  if (localStorage.getItem('Sophie_Bluel_Architecte_JWT')) {
     loginLogoutLink.textContent = 'Logout';
     loginLogoutLink.href = '#'; // Update the link to do something for logout, maybe call a logout function
     loginLogoutLink.addEventListener('click', performLogout);
@@ -13,7 +13,7 @@ function updateLoginLogoutLink() {
 
 function performLogout(event) {
   event.preventDefault();
-  sessionStorage.removeItem('Sophie_Bluel_Architecte_JWT');
+  localStorage.removeItem('Sophie_Bluel_Architecte_JWT');
   window.location.href = "../index.html"; // Redirect to home on logout or a specific logout page
   updateLoginLogoutLink();
 }
@@ -41,7 +41,7 @@ function sendLoginRequest(email, password) {
   })
   .then(function(data) {
     if (data.token) {
-      sessionStorage.setItem("Sophie_Bluel_Architecte_JWT", JSON.stringify(data));
+      localStorage.setItem("Sophie_Bluel_Architecte_JWT", data.token);
       window.location.href = "../index.html"; // Redirect to index.html on successful login
       updateLoginLogoutLink(); // Update link on successful login
     } else {
@@ -50,5 +50,7 @@ function sendLoginRequest(email, password) {
   });
 }
 
+// Call setup functions
 setupLogin();
+updateLoginLogoutLink();
 

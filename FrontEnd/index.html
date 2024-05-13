@@ -28,31 +28,32 @@
     </nav>
     <!-- --------------- Modal Body ---------------------------- -->
     <section class="modal-body">
-        <h2>Galerie Photo</h2>
-        <div class="photo-mini-gallery"></div>
-        <div id="line-modal"></div>
-        <button><h3>Ajouter une photo</h3></button>
-
+		<div class="modal-delete-photo">
+			<h2>Galerie Photo</h2>
+			<div class="photo-mini-gallery"></div>
+			<div id="line-modal"></div>
+			<button><h3>Ajouter une photo</h3></button>
+		</div>
 	<!-- Modal Form for Uploading Photos -->
-
-		<div class="modal-adding-photo">
-			<h3>Ajout photo</h3>
-			<div class="upload-img">	
-			<p>jpg, png : 4Mo max</p>
-			<form id="photo-upload-form">
-				<label for="file-upload" class="custom-file-upload">
-					<img src="/assets/images/Image.jpeg">
-					<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-						<path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-					</svg>Ajouter photo
-				</label>
-				<input id="file-upload" type="file" name="photo" accept="image/jpeg, image/png" style="display:none;" />
-				<input type="text" name="title" placeholder="Titre" />
-				<select name="category">
-					<option value="">Catégorie</option>
-					<!-- Add your categories here -->
+	    <div class="modal-upload-photo">
+			<h3 class="modal-title">Ajout photo</h3>
+			<form id="modal-edit-work-form" method="post" action="#">
+			<div id="modal-edit-new-photo" class="modal-content-new-photo">
+				<i id="photo-add-icon" class="fa-regular fa-image"></i>
+				<label id="new-image">+ Ajouter photo</label>
+				<input id="form-image" type="file" name="image" accept="image/*, .jpg, .jpeg, .png" required>
+				<p id="photo-size">jpg, png : 4mo max</p>
+			</div>
+			<div class="modal-content-new-category-title">
+				<label for="form-title">Titre</label>
+				<input type="text" name="title" id="form-title" value="" required>
+				<label for="form-category">Catégorie</label>
+				<select class="choice-category" id="form-category" required>
+				<option value=""></option>
 				</select>
-				<button type="submit">Valider</button>
+				<hr class="border-in-second-window-of-modal">
+				<input type="submit" id="submit-new-work" value="Valider">
+			</div>
 			</form>
 		</div>
     </section>
