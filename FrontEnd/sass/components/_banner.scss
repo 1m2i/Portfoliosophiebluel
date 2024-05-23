@@ -145,7 +145,7 @@
 .modal-title {
   text-align: center;
   font-size: 28px;
-  margin-bottom: 56px;
+  margin-bottom: 35px;
 }
 
 #modal-edit-work-form {
@@ -153,7 +153,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: auto;
-  width: 420px;
+  width: 520px;
   margin-bottom: 45px;
 }
 
@@ -172,7 +172,7 @@
   text-align: center;
 
   #photo-add-icon {
-    font-size: 48px;
+    font-size: 35px;
     color: #a0a0a0;
   }
 
@@ -213,7 +213,7 @@
   }
 
   input[type='text'] {
-    padding: 25px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 16px;
@@ -225,7 +225,7 @@
   }
 
   .choice-category {
-    padding: 25px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 16px;
@@ -236,13 +236,14 @@
     }
   }
 
-
   #submit-new-work {
+    width: 50%;
+    align-self: center;
     padding: 10px;
-    background-color: #929599;
+    background-color: $color-secondary;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 24px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;

@@ -38,7 +38,7 @@ function updateLoginLogoutLink() {
   
     if (token) {
       loginLogoutLink.textContent = 'Logout';
-      loginLogoutLink.href = '#';
+      loginLogoutLink.href = '/pages/login.html';
       loginLogoutLink.addEventListener('click', performLogout);
     } else {
       loginLogoutLink.textContent = 'Login';
@@ -101,7 +101,7 @@ function updateLoginLogoutLink() {
       otherSections.style.display = 'block';
       filterSection.style.visibility = 'hidden';
       loginLink.textContent = 'Logout';
-      loginLink.href = '#';
+      loginLink.href = '/pages/login.html';
       loginLink.addEventListener('click', performLogout);
       console.log("Admin panel displayed, other sections shown, filter buttons made invisible, login link changed to logout");
     } else {
