@@ -272,7 +272,7 @@ footer nav ul {
 .modal .modal-body .photo-mini-gallery {
   display: flex;
   flex-wrap: wrap;
-  padding: 72px;
+  padding: 62px;
   gap: 22px;
   position: relative;
 }
@@ -412,7 +412,7 @@ footer nav ul {
   font-weight: bold;
 }
 .modal-content-new-category-title input[type=text] {
-  padding: 25px;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 16px;
@@ -422,7 +422,7 @@ footer nav ul {
   border-color: #6e7072;
 }
 .modal-content-new-category-title .choice-category {
-  padding: 25px;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 16px;
@@ -431,11 +431,11 @@ footer nav ul {
 .modal-content-new-category-title .choice-category:focus {
   border-color: gray;
 }
-.modal-content-new-category-title #submit-new-work {
+.modal-content-new-category-title .submit-new-work {
   width: 50%;
   align-self: center;
   padding: 10px;
-  background-color: #929599;
+  background-color: #1D6154;
   color: #fff;
   border: none;
   border-radius: 24px;

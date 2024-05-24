@@ -60,7 +60,7 @@
         .photo-mini-gallery {
           display: flex;
           flex-wrap: wrap;
-          padding: 72px;
+          padding: 62px;
           gap: 22px;
           position: relative;
       }
@@ -236,11 +236,11 @@
     }
   }
 
-  #submit-new-work {
+  .submit-new-work {
     width: 50%;
     align-self: center;
     padding: 10px;
-    background-color: $color-secondary;
+    background-color:#1D6154 ;
     color: #fff;
     border: none;
     border-radius: 24px;
