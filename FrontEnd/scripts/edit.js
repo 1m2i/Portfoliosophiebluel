@@ -1,7 +1,5 @@
-
 document.addEventListener('DOMContentLoaded', function() {
   showAdminPanel();  // Call this function to check token and update the UI
-  setupLogin(); // Set up the login button
 });
 
 function updateLoginLogoutLink() {
@@ -27,39 +25,6 @@ function performLogout(event) {
   showAdminPanel(); // Update admin panel visibility on logout
 }
 
-function setupLogin() {
-
-  btnLogin.addEventListener("click", function(event) {
-      event.preventDefault();
-      const email = document.querySelector("#user-email").value;
-      const password = document.querySelector("#user-password").value;
-      sendLoginRequest(email, password);
-  });
-}
-
-function sendLoginRequest(email, password) {
-  fetch("http://localhost:5678/api/users/login", {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ email: email, password: password })
-  })
-  .then(function(response) {
-      return response.json();
-  })
-  .then(function(data) {
-      if (data.token) {
-          localStorage.setItem("Sophie_Bluel_Architecte_JWT", data.token);
-          window.location.href = "../index.html"; // Redirect to index.html on successful login
-      } else {
-          alert("Échec de la connexion. Veuillez vérifier vos identifiants.");
-      }
-  })
-  .catch(function(error) {
-      console.error('Error during login request:', error);
-  });
-}
 
 function showAdminPanel() {
   const token = localStorage.getItem("Sophie_Bluel_Architecte_JWT");

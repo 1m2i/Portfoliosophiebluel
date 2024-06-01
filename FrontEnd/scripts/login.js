@@ -1,39 +1,6 @@
-function updateLoginLogoutLink() {
-  const loginLogoutLink = document.getElementById('loginLogoutLink');
-  if (localStorage.getItem('Sophie_Bluel_Architecte_JWT')) {
-    loginLogoutLink.textContent = 'Logout';
-    loginLogoutLink.href = '#'; 
-    loginLogoutLink.addEventListener('click', performLogout);
-  } else {
-    loginLogoutLink.textContent = 'Login';
-    loginLogoutLink.href = '/pages/login.html';
-    loginLogoutLink.removeEventListener('click', performLogout);
-  }
-}
-
-
 document.addEventListener('DOMContentLoaded', (event) => {
   setupLogin();
-  updateLoginLogoutLink();
 });
-
-function updateLoginLogoutLink() {
-  const loginLogoutLink = document.getElementById('loginLogoutLink');
-  if (!loginLogoutLink) {
-    console.error('Element with id "loginLogoutLink" not found');
-    return;
-  }
-  
-  if (localStorage.getItem('Sophie_Bluel_Architecte_JWT')) {
-    loginLogoutLink.textContent = 'Logout';
-    loginLogoutLink.href = '#'; 
-    loginLogoutLink.addEventListener('click', performLogout);
-  } else {
-    loginLogoutLink.textContent = 'Login';
-    loginLogoutLink.href = './pages/login.html';
-    loginLogoutLink.removeEventListener('click', performLogout);
-  }
-}
 
 function performLogout(event) {
   event.preventDefault();
